@@ -1,0 +1,12 @@
+server:
+  port: 8080
+
+backend:
+  server: http://localhost:8081/hello
+#  ssl:
+#    "key-store" : 'classpath:server.jks'
+#    "key-store-password" : s3cr3t
+#    "key-password" : s3cr3t
+#    "trust-store" : 'classpath:server.jks'
+#    "trust-store-password" : s3cr3t
+#    "client-auth" : "need"

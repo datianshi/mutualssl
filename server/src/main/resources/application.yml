@@ -1,0 +1,9 @@
+server:
+  port: 8081
+#  ssl:
+#    "key-store" : 'classpath:server.jks'
+#    "key-store-password" : s3cr3t
+#    "key-password" : s3cr3t
+#    "trust-store" : 'classpath:server.jks'
+#    "trust-store-password" : s3cr3t
+#    "client-auth" : "need"
