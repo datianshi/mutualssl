@@ -1,0 +1,5 @@
+---
+applications:
+- name: mutualssl-client
+  memory: 512M
+  host: nifty
