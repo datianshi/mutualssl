@@ -2,4 +2,10 @@
 applications:
 - name: mutualssl-client
   memory: 512M
-  host: nifty
+  path: client/target/client-0.0.1-SNAPSHOT.jar
+  env:
+    BACKEND_SERVER: https://mutualssl-server.cfapps.pez.pivotal.io
+
+- name: mutualssl-server
+  memory: 512M
+  path: server/target/server-0.0.1-SNAPSHOT.jar

@@ -13,6 +13,7 @@ public class MutualsslClientApplication {
 		System.setProperty("javax.net.ssl.trustStorePassword", "s3cr3t");
 		System.setProperty("javax.net.ssl.keyStore",  "client.jks");
 		System.setProperty("javax.net.ssl.keyStorePassword", "s3cr3t");
+		System.setProperty("javax.net.debug", "ssl");
 		javax.net.ssl.HttpsURLConnection.setDefaultHostnameVerifier(
 				new javax.net.ssl.HostnameVerifier() {
 
