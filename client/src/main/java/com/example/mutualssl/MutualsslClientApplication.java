@@ -9,9 +9,9 @@ import org.springframework.web.client.RestTemplate;
 public class MutualsslClientApplication {
 
 	static {
-		System.setProperty("javax.net.ssl.trustStore", "client_trust.jks");
+		System.setProperty("javax.net.ssl.trustStore", System.getenv("CLIENT_TRUST_STORE"));
 		System.setProperty("javax.net.ssl.trustStorePassword", "s3cr3t");
-		System.setProperty("javax.net.ssl.keyStore",  "client.jks");
+		System.setProperty("javax.net.ssl.keyStore",  System.getenv("CLIENT_KEY_STORE"));
 		System.setProperty("javax.net.ssl.keyStorePassword", "s3cr3t");
 		System.setProperty("javax.net.debug", "ssl");
 		javax.net.ssl.HttpsURLConnection.setDefaultHostnameVerifier(

@@ -4,8 +4,12 @@ applications:
   memory: 512M
   path: client/target/client-0.0.1-SNAPSHOT.jar
   env:
-    BACKEND_SERVER: https://mutualssl-server.cfapps.pez.pivotal.io
+    BACKEND_SERVER: https://mutulssl-server.shaozhenpcf.com:5000
+    CLIENT_KEY_STORE: /home/vcap/app/BOOT-INF/classes/client.jks
+    CLIENT_TRUST_STORE: /home/vcap/app/BOOT-INF/classes/client_trust.jks
 
 - name: mutualssl-server
   memory: 512M
   path: server/target/server-0.0.1-SNAPSHOT.jar
+  routes:
+    - route: mutulssl-server.shaozhenpcf.com:5000
