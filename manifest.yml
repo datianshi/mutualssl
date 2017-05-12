@@ -4,7 +4,7 @@ applications:
   memory: 512M
   path: client/target/client-0.0.1-SNAPSHOT.jar
   env:
-    BACKEND_SERVER: https://mutulssl-server.shaozhenpcf.com:5000
+    BACKEND_SERVER: https://mutulssl-server.shaozhenpcf.com:5000/hello
     CLIENT_KEY_STORE: /home/vcap/app/BOOT-INF/classes/client.jks
     CLIENT_TRUST_STORE: /home/vcap/app/BOOT-INF/classes/client_trust.jks
 
