@@ -76,7 +76,7 @@ applications:
      ```
   2. Through VAULT
 
-    *Implementation Details: Load keystore files with base64 encoding to vault. Use Java to grab the keystores, decode, create a temp jks file and load to JVM*
+    **Implementation Details: Load keystore files with base64 encoding to vault. Use Java to grab the keystores, decode, create a temp jks file and load to JVM**
 
     ```
     Using Vault CLI to load key stores
