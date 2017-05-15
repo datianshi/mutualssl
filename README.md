@@ -57,34 +57,30 @@ applications:
 
 * Configure the client keystores
 
-Currently there are *two ways* to inject the client keystores to JVM.
+  Currently there are *two ways* to inject the client keystores to JVM.
 
   1. Through environment variables
 
-    ```   
-    applications:
-    - name: mutualssl-client
-      memory: 512M
-      path: client/target/client-0.0.1-SNAPSHOT.jar
-      env:
-        BACKEND_SERVER: https://mutulssl-server.shaozhenpcf.com:5000/hello
-        KEY_STORE: /home/vcap/app/BOOT-INF/classes/client.jks
-        KEY_STORE_PASSWORD: s3cr3t
-        TRUST_STORE: /home/vcap/app/BOOT-INF/classes/client_trust.jks
-        TRUST_STORE_PASSWORD: s3cr3t
-        BACK_END: ENV  
-    ```
-
+     ```  
+     applications:
+     - name: mutualssl-client
+       memory: 512M
+       path: client/target/client-0.0.1-SNAPSHOT.jar
+       env:
+         BACKEND_SERVER: https://mutulssl-server.shaozhenpcf.com:5000/hello
+         KEY_STORE: /home/vcap/app/BOOT-INF/classes/client.jks
+         KEY_STORE_PASSWORD: s3cr3t
+         TRUST_STORE: /home/vcap/app/BOOT-INF/classes/client_trust.jks
+         TRUST_STORE_PASSWORD: s3cr3t
+         BACK_END: ENV  
+     ```
   2. Through VAULT
 
-    *Implementation Details: Load keystores file with base64 encoding to vault. Use Java to grab the keystore, decode and create a temp jks file and load to JVM keystore configuration*
+    *Implementation Details: Load keystore files with base64 encoding to vault. Use Java to grab the keystores, decode, create a temp jks file and load to JVM*
 
     ```
     Using Vault CLI to load key stores
     ./import_keystore_vault.sh
-    ```
-
-    ```
     ---
     applications:
     - name: mutualssl-client
