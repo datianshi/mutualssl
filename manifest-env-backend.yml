@@ -5,13 +5,11 @@ applications:
   path: client/target/client-0.0.1-SNAPSHOT.jar
   env:
     BACKEND_SERVER: https://mutulssl-server.shaozhenpcf.com:5000/hello
-    KEY_STORE: jks_store/client
-    KEY_STORE_PASSWORD: secret/client_pass
-    TRUST_STORE: jks_store/client_trust
-    TRUST_STORE_PASSWORD: secret/client_trust_pass
-    BACK_END: VAULT
-    VAULT_SERVER: http://10.193.53.7:8200
-    VAULT_TOKEN: 7c51e5f5-c909-2943-3657-a1c63305f11d
+    KEY_STORE: /home/vcap/app/BOOT-INF/classes/client.jks
+    KEY_STORE_PASSWORD: s3cr3t
+    TRUST_STORE: /home/vcap/app/BOOT-INF/classes/client_trust.jks
+    TRUST_STORE_PASSWORD: s3cr3t
+    BACK_END: ENV
 
 - name: mutualssl-server
   memory: 512M

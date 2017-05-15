@@ -1,5 +1,6 @@
 package com.example.mutualssl;
 
+import com.example.mutualssl.keystore.LoadKeyStore;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -9,10 +10,7 @@ import org.springframework.web.client.RestTemplate;
 public class MutualsslClientApplication {
 
 	static {
-		System.setProperty("javax.net.ssl.trustStore", System.getenv("CLIENT_TRUST_STORE"));
-		System.setProperty("javax.net.ssl.trustStorePassword", "s3cr3t");
-		System.setProperty("javax.net.ssl.keyStore",  System.getenv("CLIENT_KEY_STORE"));
-		System.setProperty("javax.net.ssl.keyStorePassword", "s3cr3t");
+		new LoadKeyStore().LoadKeyStore();
 		System.setProperty("javax.net.debug", "ssl");
 		javax.net.ssl.HttpsURLConnection.setDefaultHostnameVerifier(
 				new javax.net.ssl.HostnameVerifier() {
