@@ -6,6 +6,7 @@
 * One Backend application (server) with /hello endpoint.
 * Server has a TCP routes with mutual SSL enabled
 * Client use restTemplate to communicate with server through mutual SSL
+* Using VAULT to store keystores
 * Enable java ssl debug
 
 ### How to Run
