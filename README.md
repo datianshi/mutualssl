@@ -62,46 +62,45 @@ Currently there are *two ways* to inject the client keystores to JVM.
 
   1. Through environment variables
 
-  ```
-  ---
-  applications:
-  - name: mutualssl-client
-    memory: 512M
-    path: client/target/client-0.0.1-SNAPSHOT.jar
-    env:
-      BACKEND_SERVER: https://mutulssl-server.shaozhenpcf.com:5000/hello
-      KEY_STORE: /home/vcap/app/BOOT-INF/classes/client.jks
-      KEY_STORE_PASSWORD: s3cr3t
-      TRUST_STORE: /home/vcap/app/BOOT-INF/classes/client_trust.jks
-      TRUST_STORE_PASSWORD: s3cr3t
-      BACK_END: ENV  
-  ```
+    ```   
+    applications:
+    - name: mutualssl-client
+      memory: 512M
+      path: client/target/client-0.0.1-SNAPSHOT.jar
+      env:
+        BACKEND_SERVER: https://mutulssl-server.shaozhenpcf.com:5000/hello
+        KEY_STORE: /home/vcap/app/BOOT-INF/classes/client.jks
+        KEY_STORE_PASSWORD: s3cr3t
+        TRUST_STORE: /home/vcap/app/BOOT-INF/classes/client_trust.jks
+        TRUST_STORE_PASSWORD: s3cr3t
+        BACK_END: ENV  
+    ```
 
   2. Through VAULT
 
-  *Implementation Details: Load keystores file with base64 encoding to vault. Use Java to grab the keystore, decode and create a temp jks file and load to JVM keystore configuration*
+    *Implementation Details: Load keystores file with base64 encoding to vault. Use Java to grab the keystore, decode and create a temp jks file and load to JVM keystore configuration*
 
-  ```
-  Using Vault CLI to load key stores
-  ./import_keystore_vault.sh
-  ```
+    ```
+    Using Vault CLI to load key stores
+    ./import_keystore_vault.sh
+    ```
 
-  ```
-  ---
-  applications:
-  - name: mutualssl-client
-    memory: 512M
-    path: client/target/client-0.0.1-SNAPSHOT.jar
-    env:
-      BACKEND_SERVER: https://mutulssl-server.shaozhenpcf.com:5000/hello
-      KEY_STORE: jks_store/client
-      KEY_STORE_PASSWORD: secret/client_pass
-      TRUST_STORE: jks_store/client_trust
-      TRUST_STORE_PASSWORD: secret/client_trust_pass
-      BACK_END: VAULT
-      VAULT_SERVER: http://10.193.53.7:8200
-      VAULT_TOKEN: 7c51e5f5-c909-2943-3657-a1c63305f11d
-  ```
+    ```
+    ---
+    applications:
+    - name: mutualssl-client
+      memory: 512M
+      path: client/target/client-0.0.1-SNAPSHOT.jar
+      env:
+        BACKEND_SERVER: https://mutulssl-server.shaozhenpcf.com:5000/hello
+        KEY_STORE: jks_store/client
+        KEY_STORE_PASSWORD: secret/client_pass
+        TRUST_STORE: jks_store/client_trust
+        TRUST_STORE_PASSWORD: secret/client_trust_pass
+        BACK_END: VAULT
+        VAULT_SERVER: http://10.193.53.7:8200
+        VAULT_TOKEN: 7c51e5f5-c909-2943-3657-a1c63305f11d
+    ```
 
 * cf push
 
