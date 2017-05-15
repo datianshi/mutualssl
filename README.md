@@ -17,8 +17,7 @@ Shaozhen-Ding-MacBook-Pro:mutualssl sding$ cf domains
 Getting domains in org test as admin...
 name                              status   type
 cfapps.haas-50.pez.pivotal.io     shared
-kubo.shaozhenpcf.com              shared   tcp
-mutulssl-server.
+mutulssl-server.shaozhenpcf.com   shared   tcp
 ```
 
 * Generate Certificates
