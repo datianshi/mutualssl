@@ -1,15 +1,25 @@
 package com.example.mutualssl;
 
-import org.springframework.stereotype.Component;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 
 @RestController
 public class MyController {
+    protected final Log logger = LogFactory.getLog(this.getClass());
     @GetMapping("/hello")
     public String sayHello(){
-        return "Hello, Spring Boot supposed to make mutual ssl easier";
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        return String.format("Thanks for authenticating with X509, certificate CN is: %s", user.getUsername());
+    }
+    @GetMapping("/nomutual")
+    public String nomutual(HttpServletRequest request){
+        logger.info("X-Forward-Client-Cert: " +request.getHeader("X-Forwarded-Client-Cert"));
+        return "this has no mutual auth";
     }
 }

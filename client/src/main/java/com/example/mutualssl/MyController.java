@@ -20,7 +20,14 @@ public class MyController {
 
     @GetMapping("/hello")
     public String sayHello(){
-        ResponseEntity<String> rs =   restTemplate.getForEntity(backendServer, String.class);
-        return rs.toString();
+        ResponseEntity<String> rs =   restTemplate.getForEntity(backendServer + "/hello", String.class);
+        return rs.getBody();
+    }
+
+
+    @GetMapping("/nomutual")
+    public String nomutual(){
+        ResponseEntity<String> rs =   restTemplate.getForEntity(backendServer + "/nomutual", String.class);
+        return rs.getBody();
     }
 }

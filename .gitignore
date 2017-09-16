@@ -23,5 +23,3 @@ dist/
 nbdist/
 .nb-gradle/
 *.cer
-*.jks
-!keystore/src/test/resources/*.jks

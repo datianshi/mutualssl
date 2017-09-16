@@ -1,18 +1,19 @@
 ---
 applications:
 - name: mutualssl-client
-  memory: 512M
+  memory: 1g
   path: client/target/client-0.0.1-SNAPSHOT.jar
+  routes:
+  - route: client.mutual.shaozhenpcf.com
   env:
-    BACKEND_SERVER: https://mutulssl-server.shaozhenpcf.com:5000/hello
+    BACKEND_SERVER: https://server.mutual.shaozhenpcf.com
     KEY_STORE: /home/vcap/app/BOOT-INF/classes/client.jks
     KEY_STORE_PASSWORD: s3cr3t
     TRUST_STORE: /home/vcap/app/BOOT-INF/classes/client_trust.jks
     TRUST_STORE_PASSWORD: s3cr3t
     BACK_END: ENV
-
 - name: mutualssl-server
-  memory: 512M
-  path: server/target/server-0.0.1-SNAPSHOT.jar
+  memory: 1g
   routes:
-    - route: mutulssl-server.shaozhenpcf.com:5000
+  - route: server.mutual.shaozhenpcf.com
+  path: server/target/server-0.0.1-SNAPSHOT.jar
