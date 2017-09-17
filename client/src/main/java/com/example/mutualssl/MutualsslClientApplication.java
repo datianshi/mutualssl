@@ -10,7 +10,6 @@ import org.springframework.web.client.RestTemplate;
 public class MutualsslClientApplication {
 
 	static {
-		new LoadKeyStore().LoadKeyStore();
 		System.setProperty("javax.net.debug", "ssl");
 		javax.net.ssl.HttpsURLConnection.setDefaultHostnameVerifier(
 				new javax.net.ssl.HostnameVerifier() {
