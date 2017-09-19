@@ -1,5 +1,5 @@
 ---
 applications:
-- name: client
+- name: client-c2c
   memory: 1g
   path: client/target/client-0.0.1-SNAPSHOT.jar  
