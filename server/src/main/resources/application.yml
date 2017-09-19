@@ -1,0 +1,18 @@
+server:
+  port: 8080
+
+ssl:
+  port: 8443
+  keystore:
+    file: classpath:/server.jks
+    pass: shaozhen
+cf:
+  instance:
+    internal:
+      ip: 10.10.10.10
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+        web: DEBUG
